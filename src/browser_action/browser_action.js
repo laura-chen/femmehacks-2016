@@ -28,6 +28,7 @@ var submitEntry = function () {
   //var presenter = $("#talkPresenter").val();
   var content = $("#entryContent").val();
 
+  
   // Push a new entry to the database using those values
   entry.push({
     //"title": title,

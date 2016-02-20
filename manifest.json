@@ -2,7 +2,7 @@
   "name": "Chrome Reflect",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "An extension that allows you to linger on thought-provoking articles.",
+  "description": "An extension that allows you to linger on",
   "homepage_url": "https://github.com/firebase/firebase-chrome-extension",
   /* This sample uses firebaseio-demo.com but for production apps using a firebaseio.com Firebase, you won't need that. */
   "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://*.firebaseio-demo.com; object-src 'self'",
@@ -20,4 +20,8 @@
     "default_title": "browser action",
     "default_popup": "src/browser_action/browser_action.html"
   }
+
+  //"permissions": [
+    //"tabs" 
+  //],
 }

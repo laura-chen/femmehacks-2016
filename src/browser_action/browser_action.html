@@ -27,50 +27,48 @@
 <script src="browser_action.js"></script>
 
     <div class="container">
-      <h1>Talks You Should Watch</h1>
+      <h1>New Reflection</h1>
 
-      <h3>Last Talk Proposed</h3>
-
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Presenter</th>
-            <th>Link</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <!-- This is empty for now, but it will be filled out by an event handler in application.js with the most recent recommendation data from Firebase. -->
-            <td id="title"></td>
-            <td id="presenter"></td>
-            <td><a id="link" target="_blank"></a></td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h3>Submit a Talk</h3>
-
-      <form id="recommendationForm">
+      <form id="entryForm">
         <div class="form-group">
-          <label for="talkTitle">Title</label>
+         <!-- <label for="talkTitle">Title</label>
           <input class="form-control" id="talkTitle" placeholder="Title of the talk">
         </div>
 
         <div class="form-group">
           <label for="talkPresenter">Presenter</label>
           <input class="form-control" id="talkPresenter" placeholder="Name of the presenter">
-        </div>
+        </div> -->
 
         <div class="form-group">
-          <label for="talkLink">Link</label>
-          <input type="url" class="form-control" id="talkLink" placeholder="Link to a recording of the talk">
+          <label for="entryContent">Reflection</label>
+          <input type="url" class="form-control" id="entryContent" placeholder="Reflection on article">
         </div>
 
         <!-- When you click this button, trigger the submit event on this form. -->
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
+
+     <h3>Previous Reflections</h3>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <!--<th>Title</th>
+            <th>Presenter</th> -->
+            <th>Reflection</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <!-- This is empty for now, but it will be filled out by an event handler in application.js with the most recent recommendation data from Firebase. -->
+            <!--<td id="title"></td>
+            <td id="presenter"></td> -->
+            <td><a id="content" target="_blank"></a></td>
+          </tr>
+        </tbody>
+      </table>
 </div>
 
 <script type="text/javascript" src="https://cdn.firebase.com/v0/firebase.js"></script>

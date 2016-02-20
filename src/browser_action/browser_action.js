@@ -17,41 +17,41 @@ f.transaction(function(curr) {
 // TODO: Replace with your Firebase app
 var myFirebaseApp = "chrome-reflect";
 
-// Reference to the recommendations object in your Firebase
-var recommendations = new Firebase("https://" + myFirebaseApp + ".firebaseio.com/recommendations");
+// Reference to the entry object in your Firebase
+var entry = new Firebase("https://" + myFirebaseApp + ".firebaseio.com/entry");
 
-// Save a new recommendation to the database, using the input in the form
-var submitRecommendation = function () {
+// Save a new entry to the database, using the input in the form
+var submitEntry = function () {
 
   // Get input values from each of the form elements
-  var title = $("#talkTitle").val();
-  var presenter = $("#talkPresenter").val();
-  var link = $("#talkLink").val();
+  //var title = $("#talkTitle").val();
+  //var presenter = $("#talkPresenter").val();
+  var content = $("#entryContent").val();
 
-  // Push a new recommendation to the database using those values
-  recommendations.push({
-    "title": title,
-    "presenter": presenter,
-    "link": link
+  // Push a new entry to the database using those values
+  entry.push({
+    //"title": title,
+    //"presenter": presenter,
+    "content": content
   });
 };
 
-// Get the single most recent recommendation from the database and
+// Get the single most recent entry from the database and
 // update the table with its values. This is called every time the child_added
-// event is triggered on the recommendations Firebase reference, which means
+// event is triggered on the entry Firebase reference, which means
 // that this will update EVEN IF you don't refresh the page. Magic.
-recommendations.limitToLast(1).on('child_added', function(childSnapshot) {
+entry.limitToLast(1).on('child_added', function(childSnapshot) {
   // Get the recommendation data from the most recent snapshot of data
   // added to the recommendations list in Firebase
-  recommendation = childSnapshot.val();
+  entry = childSnapshot.val();
 
   // Update the HTML to display the recommendation text
-  $("#title").html(recommendation.title)
-  $("#presenter").html(recommendation.presenter)
-  $("#link").html(recommendation.link)
+  //$("#title").html(recommendation.title)
+  //$("#presenter").html(recommendation.presenter)
+  $("#content").html(entry.content)
 
   // Make the link actually work and direct to the URL provided
-  $("#link").attr("href", recommendation.link)
+  //$("#link").attr("href", recommendation.link)
 });
 
 // When the window is fully loaded, call this function.
@@ -63,6 +63,6 @@ $(window).load(function () {
 
   // Find the HTML element with the id recommendationForm, and when the submit
   // event is triggered on that element, call submitRecommendation.
-  $("#recommendationForm").submit(submitRecommendation);
+  $("#entryForm").submit(submitEntry);
 
 });

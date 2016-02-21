@@ -1,6 +1,10 @@
 <!doctype html>
 
  <head>
+
+ 	<link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+
+ 	<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     <!-- Load the Firebase library before loading the body. -->
     <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
 
@@ -10,7 +14,7 @@
     <!-- Load Bootstrap stylesheet, which will is CSS that makes everything prettier and also responsive (aka will work on all devices of all sizes). -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-    <link type="text/css" rel="filename" href="filename.css"/> 
+    <link type="text/css" rel="stylesheet" href="newstylesheet.css"/> 
 
  </head>
 
@@ -30,7 +34,7 @@
 <script src="browser_action.js"></script>
 
     <div class="container">
-      <h1>New Reflection</h1>
+      <h1 id="fancyscript"> New Reflection</h1>
 
       <form id="entryForm">
         <div class="form-group">
@@ -44,23 +48,22 @@
         </div> -->
 
         <div class="form-group">
-          <label for="entryContent">Reflection</label>
           <input type="text" class="form-control" id="entryContent" placeholder="What are your thoughts?">
         </div>
 
         <!-- When you click this button, trigger the submit event on this form. -->
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button id="button" type="submit" class="btn btn-default">Submit</button>
       </form>
     </div>
 
-     <h3>Previous Reflections</h3>
+     <h3 id="serif">Your Last Reflections</h3>
 
       <table class="table table-striped">
         <thead>
           <tr>
             <!--<th>Title</th>
             <th>Presenter</th> -->
-            <th>Reflection</th>
+            <th id="abel2">Reflection</th>
           </tr>
         </thead>
         <tbody>
@@ -70,12 +73,12 @@
             <td id="presenter"></td> -->
             <td><a id="content" target="_blank"></a></td>
           </tr>
-          <tr>
+          <!--<tr>
             <td><a id="content2" target="_blank"></a></td>
           </tr>
           <tr>
             <td><a id="content3" target="_blank"></a></td>
-          </tr>
+          </tr>-->
         </tbody>
       </table>
 </div>

@@ -33,6 +33,7 @@ var submitEntry = function () {
   entries.push({
     //"title": title,
     //"presenter": presenter,
+    //"url": tabURL,
     "content": content
   });
 };
@@ -43,11 +44,9 @@ window.onload = function(){
     currentWindow: true
 }, function(tabs) {
 
-  var tabURL = tabs[0].url;
+  tabURL = tabs[0].url;
 
-  var url = tab.url;
-
-  console.log(url);
+  console.log(tabURL);
 
 }); 
 };

@@ -18,7 +18,7 @@ f.transaction(function(curr) {
 var myFirebaseApp = "chrome-reflect";
 
 // Reference to the entry object in your Firebase
-var entry = new Firebase("https://" + myFirebaseApp + ".firebaseio.com/entry");
+var entries = new Firebase("https://" + myFirebaseApp + ".firebaseio.com/entries");
 
 // Save a new entry to the database, using the input in the form
 var submitEntry = function () {
@@ -28,29 +28,53 @@ var submitEntry = function () {
   //var presenter = $("#talkPresenter").val();
   var content = $("#entryContent").val();
 
-  
+
   // Push a new entry to the database using those values
-  entry.push({
+  entries.push({
     //"title": title,
     //"presenter": presenter,
     "content": content
   });
 };
 
+window.onload = function(){
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+}, function(tabs) {
+
+  var tabURL = tabs[0].url;
+
+  var url = tab.url;
+
+  console.log(url);
+
+}); 
+};
+
+
 // Get the single most recent entry from the database and
 // update the table with its values. This is called every time the child_added
 // event is triggered on the entry Firebase reference, which means
 // that this will update EVEN IF you don't refresh the page. Magic.
-entry.limitToLast(1).on('child_added', function(childSnapshot) {
+entries.limitToLast(1).on('child_added', function(childSnapshot) {
   // Get the recommendation data from the most recent snapshot of data
   // added to the recommendations list in Firebase
-  entry = childSnapshot.val();
+  
+  var entry = childSnapshot.val();
 
   // Update the HTML to display the recommendation text
   //$("#title").html(recommendation.title)
   //$("#presenter").html(recommendation.presenter)
   $("#content").html(entry.content)
 
+  //entry = childSnapshot.val();
+  //$("#content2").html(entry.content)
+
+  //entry = childSnapshot.val();
+  //$("#content3").html(entry.content)
+
+  console.log(childSnapshot.key());
   // Make the link actually work and direct to the URL provided
   //$("#link").attr("href", recommendation.link)
 });
